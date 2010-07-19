@@ -5,6 +5,7 @@
 #login {
 	margin:15px 0px; padding:0px;
 	text-align:center;
+	float:left;
 }
 #login .inner {
 	width:260px;
