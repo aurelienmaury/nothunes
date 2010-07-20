@@ -2,29 +2,28 @@
 <meta name='layout' content='main' />
 <title>Login</title>
 <style type='text/css' media='screen'>
+
 #login {
 	margin:15px 0px; padding:0px;
-	text-align:center;
-	float:left;
+	background: url(../images/leftnav_midstretch.png) repeat-y top;
+	text-align:center;	
 }
 #login .inner {
-	width:260px;
+	width:230px;
 	margin:0px auto;
 	text-align:left;
 	padding:10px;
-	border-top:1px dashed #499ede;
-	border-bottom:1px dashed #499ede;
 	background-color:#EEF;
 }
 #login .inner .fheader {
 	padding:4px;margin:3px 0px 3px 0;color:#2e3741;font-size:14px;font-weight:bold;
 }
 #login .inner .cssform p {
-	clear: left;
+	
 	margin: 0;
 	padding: 5px 0 8px 0;
 	padding-left: 105px;
-	border-top: 1px dashed gray;
+	
 	margin-bottom: 10px;
 	height: 1%;
 }
@@ -44,6 +43,9 @@
 </head>
 
 <body>
+<div class="nav">
+		
+	</div>
 	<div id='login'>
 		<div class='inner'>
 			<g:if test='${flash.message}'>

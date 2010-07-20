@@ -1,4 +1,4 @@
-<h1>Menu internaute</h1>
+<h1>Menu</h1>
 <ul>
-	<li>Element de menu accessible a tous</li>
+	<li><a href="${createLinkTo(dir:'')}">Home</a></li>
 </ul>

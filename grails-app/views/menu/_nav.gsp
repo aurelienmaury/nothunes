@@ -15,12 +15,12 @@
 		<div class="panelTop"></div>
 		
 		<div class="panelBody">
-	
+
+			<g:render template="/menu/all" />
+			
 			<g:render template="/menu/admin" /> 
 			
 			<g:render template="/menu/user" />
-			
-			<g:render template="/menu/all" />
 			
 		</div>
 		

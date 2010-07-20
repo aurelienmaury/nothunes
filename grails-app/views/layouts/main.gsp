@@ -11,13 +11,17 @@
         <g:javascript library="application" />
     </head>
     <body>
+    	<div id="pageHeader">
+    	
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
-        <div id="grailsLogo"><a href="${createLinkTo(dir:'')}"><img src="${resource(dir:'images',file:'grails_logo.png')}" alt="Grails" border="0" /></a></div>
-        
+        <div id="grailsLogo"><a href="${createLinkTo(dir:'')}"><img src="${resource(dir:'images',file:'nothunes_logo.png')}" alt="Grails" border="0" /></a></div>
+        </div>
         <g:render template="/menu/nav"/>
         
+        <div id="pageContent">
         <g:layoutBody />
+        </div>
     </body>
 </html>

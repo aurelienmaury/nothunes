@@ -5,7 +5,7 @@
 
 <body>
 	<div class="nav">
-		<span class="menuButton"><a class='home' href="${createLinkTo(dir:'')}">Home</a></span>
+		
 	</div>
 
 	<div class="body">
