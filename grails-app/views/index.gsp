@@ -10,7 +10,7 @@
 	</div>
         <div class="body">
             <h1>Welcome to NoThunes</h1>
-            <p>This is the homepage.</p>
+            <p>This is just the beginning ...</p>
         </div>
     </body>
 </html>
