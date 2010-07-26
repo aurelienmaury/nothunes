@@ -9,6 +9,10 @@
 		
 	</div>
         <div class="body">
+        	<g:if test="${flash.message}">
+				<div class="message">${flash.message}</div>
+			</g:if>
+			
             <h1>Welcome to NoThunes</h1>
             <p>This is just the beginning ...</p>
         </div>

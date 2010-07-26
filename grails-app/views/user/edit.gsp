@@ -53,6 +53,13 @@
 							<input type="password" id="passwd" name="passwd" value="${person.passwd?.encodeAsHTML()}"/>
 						</td>
 					</tr>
+					
+					<tr class="prop">
+						<td valign="top" class="name"><label for="confirmPasswd">Confirm password:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'confirmPasswd','errors')}">
+							<input type="password" id="confirmPasswd" name="confirmPasswd" value="${person.passwd?.encodeAsHTML()}"/>
+						</td>
+					</tr>
 
 					<tr class="prop">
 						<td valign="top" class="name"><label for="enabled">Enabled:</label></td>
