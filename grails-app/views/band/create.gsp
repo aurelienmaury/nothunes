@@ -10,7 +10,6 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
@@ -23,7 +22,7 @@
                 <g:renderErrors bean="${bandInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" method="post" >
+            <g:form action="save" method="post" enctype="multipart/form-data">
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -60,6 +59,7 @@
                                     <label for="logoPath"><g:message code="band.logoPath.label" default="Logo Path" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'logoPath', 'errors')}">
+                                    <input type="file" name="logoFile"/>
                                     <g:textField name="logoPath" value="${bandInstance?.logoPath}" />
                                 </td>
                             </tr>

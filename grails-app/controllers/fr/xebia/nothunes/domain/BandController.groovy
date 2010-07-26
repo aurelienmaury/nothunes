@@ -6,6 +6,8 @@ class BandController {
 	
 	def authenticateService
 	
+	def uploadService
+	
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
 	def index = {
@@ -29,6 +31,16 @@ class BandController {
 		
 		// setting owner to current user
 		bandInstance.owner = User.get(authenticateService.userDomain().id)
+		
+		// saving image File
+		def imageSaved = uploadService.saveImageFile(request.getFile('logoFile'), bandInstance.name) 
+		if (imageSaved) {
+			bandInstance.logoPath = imageSaved
+		} else {
+			flash.message = 'Bad image type. Authorized are : jpeg, gif and png'
+			render(view: "create", model: [bandInstance: bandInstance])
+			return
+		}
 		
 		if (bandInstance.save(flush:true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'band.label', default: 'Band'), bandInstance.id])}"

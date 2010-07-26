@@ -10,7 +10,6 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
@@ -24,7 +23,7 @@
                 <g:renderErrors bean="${bandInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${bandInstance?.id}" />
                 <g:hiddenField name="version" value="${bandInstance?.version}" />
                 <div class="dialog">
@@ -60,18 +59,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="albums"><g:message code="band.albums.label" default="Albums" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'albums', 'errors')}">
-                                    <g:select name="albums" from="${fr.xebia.nothunes.domain.Album.list()}" multiple="yes" optionKey="id" size="5" value="${bandInstance?.albums*.id}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="logoPath"><g:message code="band.logoPath.label" default="Logo Path" /></label>
+                                    <label for="logoPath"><g:message code="band.logoPath.label" default="Logo Path" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'logoPath', 'errors')}">
+                                    <input type="file" name="logoFile"/>
                                     <g:textField name="logoPath" value="${bandInstance?.logoPath}" />
                                 </td>
                             </tr>

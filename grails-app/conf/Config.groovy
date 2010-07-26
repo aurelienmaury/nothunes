@@ -52,6 +52,8 @@ environments {
 	
 }
 
+storage.image.directory='/tmp/nothunes_images/'
+
 // log4j configuration
 log4j = {
 	// Example of changing the log pattern for the default console
