@@ -4,6 +4,7 @@
 		<h1>Member manages ...</h1>
 		<ul>
 			<li><g:link controller="profile">your profile</g:link></li>
+			<li><g:link controller="band">your bands</g:link></li>
 		</ul>
 	</g:ifAnyGranted>
 </g:isLoggedIn>

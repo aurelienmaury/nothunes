@@ -12,6 +12,5 @@ class Track {
 	
 	static constraints = {
 		name(nullable:false)
-		lastUpdated(nullable:false)
 	}
 }

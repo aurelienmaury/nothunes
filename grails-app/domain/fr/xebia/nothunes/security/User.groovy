@@ -19,7 +19,7 @@ class User {
 	/** MD5 Password */
 	String passwd
 	
-	String confirmPasswd
+	String confirmPasswd = passwd
 	
 	/** enabled */
 	boolean enabled

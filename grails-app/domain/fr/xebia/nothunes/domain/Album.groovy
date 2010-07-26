@@ -15,6 +15,5 @@ class Album {
 	
 	static constraints = {
 		name(nullable:false)	
-		lastUpdated(nullable:false)
 	}
 }

@@ -10,7 +10,7 @@ import fr.xebia.nothunes.security.User;
  */
 class Band {
 	
-	static belongsTo = User
+	static belongsTo = [owner:User]
 	static hasMany = [albums: Album]
 	
 	/**
@@ -41,6 +41,5 @@ class Band {
 		name(nullable:false)
 		description(nullable:false)
 		webSite(url:true)
-		lastUpdated(nullable:false)
 	}
 }
