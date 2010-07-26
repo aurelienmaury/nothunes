@@ -46,7 +46,6 @@ class User {
 				return 'default.invalid.confirmPasswd.message'
 			}
 		})
-		lastUpdated(nullable:false)
 		enabled()
 	}
 }
