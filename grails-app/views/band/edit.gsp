@@ -24,7 +24,7 @@
             </div>
             </g:hasErrors>
             <g:form method="post" enctype="multipart/form-data">
-                <g:hiddenField name="id" value="${bandInstance?.id}" />
+                <g:hiddenField name="id" value="${bandInstance?.id}" />           
                 <g:hiddenField name="version" value="${bandInstance?.version}" />
                 <div class="dialog">
                     <table>
@@ -62,9 +62,12 @@
                                     <label for="logoPath"><g:message code="band.logoPath.label" default="Logo Path" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'logoPath', 'errors')}">
-                                    <input type="file" name="logoFile"/>
-                                    <g:textField name="logoPath" value="${bandInstance?.logoPath}" />
+                                    <input type="file" name="logoFile" onchange="${'logoChanged'}.value=true"/>
+                                    ${fieldValue(bean: bandInstance, field: "logoPath")}
                                 </td>
+                                
+                                <!-- Storing old value to check if it has changed when updating -->
+                                <g:hiddenField name="logoChanged" value="" />
                             </tr>
                         
                         </tbody>

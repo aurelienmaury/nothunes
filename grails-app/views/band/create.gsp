@@ -60,7 +60,6 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'logoPath', 'errors')}">
                                     <input type="file" name="logoFile"/>
-                                    <g:textField name="logoPath" value="${bandInstance?.logoPath}" />
                                 </td>
                             </tr>
                         

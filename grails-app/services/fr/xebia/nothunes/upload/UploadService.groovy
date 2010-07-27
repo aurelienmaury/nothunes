@@ -19,6 +19,7 @@ class UploadService {
 			FileNameMap fileNameMap = URLConnection.getFileNameMap();
 			def contentType = fileNameMap.getContentTypeFor(anImageFile.originalFilename)
 			
+			// checking if file to save has authorized mime type
 			if ( authorizedImageContentType.keySet().contains(contentType) ) {
 				File storageDir = new File(grailsApplication.config.storage.image.directory)
 				if (!storageDir.exists()) {
@@ -33,7 +34,17 @@ class UploadService {
 				return false
 			}
 		} else {
-			return false
+			return 'empty'
 		}
+	}
+	
+	def removeImageFile(name) {
+		
+		File storedImage = new File(grailsApplication.config.storage.image.directory + name)
+		if (storedImage.exists()) {
+			return storedImage.delete()
+		}
+		
+		return true		
 	}
 }

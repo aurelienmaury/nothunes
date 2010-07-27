@@ -22,13 +22,6 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="band.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: bandInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="band.name.label" default="Name" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: bandInstance, field: "name")}</td>
@@ -50,13 +43,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="band.lastUpdated.label" default="Last Updated" /></td>
-                            
-                            <td valign="top" class="value"><g:formatDate date="${bandInstance?.lastUpdated}" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="band.albums.label" default="Albums" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
@@ -66,13 +52,6 @@
                                 </g:each>
                                 </ul>
                             </td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="band.dateCreated.label" default="Date Created" /></td>
-                            
-                            <td valign="top" class="value"><g:formatDate date="${bandInstance?.dateCreated}" /></td>
                             
                         </tr>
                     

@@ -29,10 +29,6 @@
                         
                             <g:sortableColumn property="webSite" title="${message(code: 'band.webSite.label', default: 'Web Site')}" />
                         
-                            <g:sortableColumn property="lastUpdated" title="${message(code: 'band.lastUpdated.label', default: 'Last Updated')}" />
-                        
-                            <g:sortableColumn property="dateCreated" title="${message(code: 'band.dateCreated.label', default: 'Date Created')}" />
-                        
                         </tr>
                     </thead>
                     <tbody>
@@ -46,10 +42,6 @@
                             <td>${fieldValue(bean: bandInstance, field: "description")}</td>
                         
                             <td>${fieldValue(bean: bandInstance, field: "webSite")}</td>
-                        
-                            <td><g:formatDate date="${bandInstance.lastUpdated}" /></td>
-                        
-                            <td><g:formatDate date="${bandInstance.dateCreated}" /></td>
                         
                         </tr>
                     </g:each>

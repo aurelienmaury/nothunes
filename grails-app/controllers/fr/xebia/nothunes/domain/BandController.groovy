@@ -32,7 +32,7 @@ class BandController {
 		// setting owner to current user
 		bandInstance.owner = User.get(authenticateService.userDomain().id)
 		
-		// saving image File
+		// saving image File with the UploadService
 		def imageSaved = uploadService.saveImageFile(request.getFile('logoFile'), bandInstance.name) 
 		if (imageSaved) {
 			bandInstance.logoPath = imageSaved
@@ -42,6 +42,7 @@ class BandController {
 			return
 		}
 		
+		// image saving is ok, saving bandInstance to DB
 		if (bandInstance.save(flush:true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'band.label', default: 'Band'), bandInstance.id])}"
 			redirect(action: "show", id: bandInstance.id)
@@ -91,6 +92,25 @@ class BandController {
 				}
 			}
 			
+			if (params.logoChanged) {
+				log.debug 'Band logo has changed, deleting old one, saving new one'
+				
+				uploadService.removeImageFile(bandInstance.logoPath)
+				
+				// saving image File with the UploadService
+				def imageSaved = uploadService.saveImageFile(request.getFile('logoFile'), bandInstance.name) 
+				if (imageSaved) {
+					bandInstance.logoPath = imageSaved
+				} else {
+					flash.message = 'Bad image type. Authorized are : jpeg, gif and png'
+					render(view: "create", model: [bandInstance: bandInstance])
+					return
+				}
+			} else {
+				log.debug 'Band logo has not changed'
+			}
+			
+			// image saving is ok, saving bandInstance to DB
 			bandInstance.properties = params
 			if (!bandInstance.hasErrors() && bandInstance.save(flush: true)) {
 				flash.message = "${message(code: 'default.updated.message', args: [message(code: 'band.label', default: 'Band'), bandInstance.id])}"
@@ -112,6 +132,9 @@ class BandController {
 		def currentUser = User.get(authenticateService.userDomain().id)
 		
 		if (bandInstance && currentUser && bandInstance.owner == currentUser) {
+			
+			uploadService.removeImageFile(bandInstance.logoPath)
+			
 			try {
 				bandInstance.delete(flush: true)
 				flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'band.label', default: 'Band'), params.id])}"
