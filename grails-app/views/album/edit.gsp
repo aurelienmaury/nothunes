@@ -23,7 +23,7 @@
                 <g:renderErrors bean="${albumInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${albumInstance?.id}" />
                 <g:hiddenField name="version" value="${albumInstance?.version}" />
                 <div class="dialog">
@@ -62,6 +62,29 @@
                                     
                                     <g:textArea name="description" value="${albumInstance?.description}" rows="5" cols="40"/>
                                 </td>
+                            </tr>
+                            
+                            <g:if test="${albumInstance.logoPath != 'empty'}">
+	                        	<tr class="prop">
+	                        		<td valign="top" class="name">
+	                                    <label for="logoPath"><g:message code="album.logo.label" default="Logo" /></label>
+	                                </td>
+	                            	<td valign="top" class="value">
+	                            		<img class="albumLogo" src="${createLink(controller:'dl', action:'images', params: [id: albumInstance.logoPath])}"/>
+	                            	</td>
+	                        	</tr>
+                        	</g:if>
+                        	
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="logoPath"><g:message code="album.logoPath.label" default="Logo Path" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: albumInstance, field: 'logoPath', 'errors')}">
+                                    <input type="file" name="logoFile" onchange="${'logoChanged'}.value=true"/>
+                                </td>
+                                
+                                <!-- Storing old value to check if it has changed when updating -->
+                                <g:hiddenField name="logoChanged" value="" />
                             </tr>
                         
                         </tbody>

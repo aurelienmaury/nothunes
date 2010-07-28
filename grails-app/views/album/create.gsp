@@ -22,7 +22,7 @@
                 <g:renderErrors bean="${albumInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" method="post" >
+            <g:form action="save" method="post" enctype="multipart/form-data">
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -56,6 +56,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: albumInstance, field: 'description', 'errors')}">
                                     <g:textArea name="description" value="${albumInstance?.description}" rows="5" cols="40"/>
+                                </td>
+                            </tr>
+                            
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="logoPath"><g:message code="album.logoPath.label" default="Logo Path" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'logoPath', 'errors')}">
+                                    <input type="file" name="logoFile"/>
                                 </td>
                             </tr>
                         

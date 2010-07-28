@@ -9,6 +9,8 @@ class Album {
 	
 	String description
 	
+	String logoPath
+	
 	Date dateCreated
 	
 	Date lastUpdated

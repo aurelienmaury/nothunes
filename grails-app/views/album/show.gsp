@@ -21,6 +21,12 @@
                 <table>
                     <tbody>
                     
+                    	<g:if test="${albumInstance.logoPath != 'empty'}">
+	                    	<tr class="prop">
+	                            <td valign="top"><img class="bandLogo" src="${createLink(controller:'dl', action:'images', params: [id: albumInstance.logoPath])}"/></td>
+	                        </tr>
+                        </g:if>
+                        
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="album.name.label" default="Name" /></td>
                             
