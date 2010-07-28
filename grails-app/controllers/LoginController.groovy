@@ -8,27 +8,27 @@ import org.springframework.security.ui.AbstractProcessingFilter
 import org.springframework.security.ui.webapp.AuthenticationProcessingFilter
 
 /**
- * Login Controller (Example).
+ * Controleur de login.
  */
 class LoginController {
-
+	
 	/**
-	 * Dependency injection for the authentication service.
+	 * Injection du service d'authentification.
 	 */
 	def authenticateService
-
+	
 	/**
 	 * Dependency injection for OpenIDConsumer.
 	 */
 	def openIDConsumer
-
+	
 	/**
 	 * Dependency injection for OpenIDAuthenticationProcessingFilter.
 	 */
 	def openIDAuthenticationProcessingFilter
-
+	
 	private final authenticationTrustResolver = new AuthenticationTrustResolverImpl()
-
+	
 	def index = {
 		if (isLoggedIn()) {
 			redirect uri: '/'
@@ -37,19 +37,19 @@ class LoginController {
 			redirect action: auth, params: params
 		}
 	}
-
+	
 	/**
 	 * Show the login page.
 	 */
 	def auth = {
-
+		
 		nocache response
-
+		
 		if (isLoggedIn()) {
 			redirect uri: '/'
 			return
 		}
-
+		
 		String view
 		String postUrl
 		def config = authenticateService.securityConfig.security
@@ -65,10 +65,10 @@ class LoginController {
 			view = 'auth'
 			postUrl = "${request.contextPath}${config.filterProcessesUrl}"
 		}
-
+		
 		render view: view, model: [postUrl: postUrl]
 	}
-
+	
 	/**
 	 * Form submit action to start an OpenID authentication.
 	 */
@@ -76,7 +76,7 @@ class LoginController {
 		String openID = params['j_username']
 		try {
 			String returnToURL = RedirectUtils.buildRedirectUrl(
-					request, response, openIDAuthenticationProcessingFilter.filterProcessesUrl)
+			request, response, openIDAuthenticationProcessingFilter.filterProcessesUrl)
 			String redirectUrl = openIDConsumer.beginConsumption(request, openID, returnToURL)
 			redirect url: redirectUrl
 		}
@@ -85,7 +85,7 @@ class LoginController {
 			redirect url: openIDAuthenticationProcessingFilter.authenticationFailureUrl
 		}
 	}
-
+	
 	// Login page (function|json) for Ajax access.
 	def authAjax = {
 		nocache(response)
@@ -98,7 +98,7 @@ class LoginController {
 		</script>
 		"""
 	}
-
+	
 	/**
 	 * The Ajax success redirect url.
 	 */
@@ -106,7 +106,7 @@ class LoginController {
 		nocache(response)
 		render '{success: true}'
 	}
-
+	
 	/**
 	 * Show denied page.
 	 */
@@ -116,26 +116,26 @@ class LoginController {
 			redirect action: full, params: params
 		}
 	}
-
+	
 	/**
 	 * Login page for users with a remember-me cookie but accessing a IS_AUTHENTICATED_FULLY page.
 	 */
 	def full = {
 		render view: 'auth', params: params,
-			model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication)]
+		model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication)]
 	}
-
+	
 	// Denial page (data|view|json) for Ajax access.
 	def deniedAjax = {
 		//this is example:
 		render "{error: 'access denied'}"
 	}
-
+	
 	/**
 	 * login failed
 	 */
 	def authfail = {
-
+		
 		def username = session[AuthenticationProcessingFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
 		def msg = ''
 		def exception = session[AbstractProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY]
@@ -147,7 +147,7 @@ class LoginController {
 				msg = "[$username] wrong username/password."
 			}
 		}
-
+		
 		if (isAjax()) {
 			render "{error: '${msg}'}"
 		}
@@ -156,18 +156,18 @@ class LoginController {
 			redirect action: auth, params: params
 		}
 	}
-
+	
 	/**
 	 * Check if logged in.
 	 */
 	private boolean isLoggedIn() {
 		return authenticateService.isLoggedIn()
 	}
-
+	
 	private boolean isAjax() {
 		return authenticateService.isAjax(request)
 	}
-
+	
 	/** cache controls */
 	private void nocache(response) {
 		response.setHeader('Cache-Control', 'no-cache') // HTTP 1.1

@@ -46,8 +46,8 @@
 
 			<tr class='prop'>
 				<td valign='top' class='name'><label for='enabled'>Confirm Password:</label></td>
-				<td valign='top' class='value ${hasErrors(bean:person,field:'passwd','errors')}'>
-					<input type="password" name='repasswd' value="${person?.passwd?.encodeAsHTML()}"/>
+				<td valign='top' class='value ${hasErrors(bean:person,field:'confirmPasswd','errors')}'>
+					<input type="password" name='confirmPasswd' value="${person?.passwd?.encodeAsHTML()}"/>
 				</td>
 			</tr>
 
