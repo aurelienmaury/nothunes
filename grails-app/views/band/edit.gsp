@@ -57,13 +57,23 @@
                                 </td>
                             </tr>
                         
+                        	<g:if test="${bandInstance.logoPath != 'empty'}">
+	                        	<tr class="prop">
+	                        		<td valign="top" class="name">
+	                                    <label for="logoPath"><g:message code="band.logo.label" default="Logo" /></label>
+	                                </td>
+	                            	<td valign="top" class="value">
+	                            		<img class="bandLogo" src="${createLink(controller:'dl', action:'images', params: [id: bandInstance.logoPath])}"/>
+	                            	</td>
+	                        	</tr>
+                        	</g:if>
+                        	
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="logoPath"><g:message code="band.logoPath.label" default="Logo Path" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: bandInstance, field: 'logoPath', 'errors')}">
                                     <input type="file" name="logoFile" onchange="${'logoChanged'}.value=true"/>
-                                    ${fieldValue(bean: bandInstance, field: "logoPath")}
                                 </td>
                                 
                                 <!-- Storing old value to check if it has changed when updating -->

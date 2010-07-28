@@ -2,7 +2,7 @@ package fr.xebia.nothunes.domain
 
 class Album {
 	
-	static belongsTo = Band
+	static belongsTo = [band: Band]
 	static hasMany = [tracks: Track]
 	
 	String name

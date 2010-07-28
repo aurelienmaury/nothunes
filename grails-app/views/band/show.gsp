@@ -20,26 +20,29 @@
             <div class="dialog">
                 <table>
                     <tbody>
-                    
+                    	<g:if test="${bandInstance.logoPath != 'empty'}">
+	                    	<tr class="prop">
+	                            <td valign="top"><img class="bandLogo" src="${createLink(controller:'dl', action:'images', params: [id: bandInstance.logoPath])}"/></td>
+	                        </tr>
+                        </g:if>
+                        
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="band.name.label" default="Name" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: bandInstance, field: "name")}</td>
-                            
                         </tr>
+                        
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="band.description.label" default="Description" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: bandInstance, field: "description")}</td>
-                            
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="band.webSite.label" default="Web Site" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: bandInstance, field: "webSite")}</td>
-                            
                         </tr>
                     
                         <tr class="prop">
@@ -48,20 +51,12 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${bandInstance.albums}" var="a">
-                                    <li><g:link controller="album" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="album" action="show" id="${a.id}">${a?.name.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
                             
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="band.logoPath.label" default="Logo Path" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: bandInstance, field: "logoPath")}</td>
-                            
-                        </tr>
-                    
+                        </tr>                    
                     </tbody>
                 </table>
             </div>

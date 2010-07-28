@@ -1,10 +1,10 @@
 
-<%@ page import="fr.xebia.nothunes.domain.Band" %>
+<%@ page import="fr.xebia.nothunes.domain.Album" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'band.label', default: 'Band')}" />
+        <g:set var="entityName" value="${message(code: 'album.label', default: 'Album')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -21,23 +21,24 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="name" title="${message(code: 'band.name.label', default: 'Name')}" />
+                            <g:sortableColumn property="name" title="${message(code: 'album.name.label', default: 'Name')}" />
                         
-                            <g:sortableColumn property="description" title="${message(code: 'band.description.label', default: 'Description')}" />
                         
-                            <g:sortableColumn property="webSite" title="${message(code: 'band.webSite.label', default: 'Web Site')}" />
+                            <g:sortableColumn property="description" title="${message(code: 'album.description.label', default: 'Description')}" />
+                        
+                            <g:sortableColumn property="bandName" title="${message(code: 'album.band.label', default: 'Band')}" />
                         
                         </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${bandInstanceList}" status="i" var="bandInstance">
+                    <g:each in="${albumInstanceList}" status="i" var="albumInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${bandInstance.id}">${fieldValue(bean: bandInstance, field: "name")}</g:link></td>
+                            <td><g:link action="show" id="${albumInstance.id}">${fieldValue(bean: albumInstance, field: "name")}</g:link></td>                       
                         
-                            <td>${fieldValue(bean: bandInstance, field: "description")}</td>
-                        
-                            <td>${fieldValue(bean: bandInstance, field: "webSite")}</td>
+                            <td>${fieldValue(bean: albumInstance, field: "description")}</td>
+                            
+                            <td><g:link controller="band" action="show" id="${albumInstance.band.id}">${albumInstance.band.name.encodeAsHTML()}</g:link></td>
                         
                         </tr>
                     </g:each>
@@ -45,7 +46,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${bandInstanceTotal}" />
+                <g:paginate total="${albumInstanceTotal}" />
             </div>
         </div>
     </body>

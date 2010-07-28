@@ -9,7 +9,11 @@ html * {
 	width:100%;
 	clear:both;
 	}
-	
+
+img.bandLogo {
+	max-height: 150px;
+	}
+
 #pageContent {
 	
 	
