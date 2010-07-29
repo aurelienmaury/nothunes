@@ -11,6 +11,7 @@
         <g:javascript library="application" />
     </head>
     <body>
+    <div class="wrapper">
     	<div id="pageHeader">
     	
         <div id="spinner" class="spinner" style="display:none;">
@@ -22,6 +23,10 @@
         
         <div id="pageContent">
         <g:layoutBody />
+        </div>
+        </div>
+        <div id="pageFooter">
+        <g:meta name="app.poweredBy"/> - <g:meta name="app.license"/> - v<g:meta name="app.version"/>
         </div>
     </body>
 </html>

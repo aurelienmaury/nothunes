@@ -3,22 +3,49 @@ html * {
 	/*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
 }
 
+#pageFooter {
+	height: 20px;
+	padding-top: 3px; clear : both;
+	margin: 0;
+	text-align: center;
+	border-top: 1px solid #D0D0D0;
+	clear: both; 
+	margin : 0; 
+	text-align : center; 
+	border-top : 1px solid #D0D0D0;
+	color: #D0D0D0;
+}
+
+#pageFooter a {
+	color: #D0D0D0;
+}
+
+#pageFooter a:hover {
+	text-decoration: underline;
+	color: #D0D0D0;
+}
+
+div.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -35px;
+}
 
 /* GENERAL */
 #pageHeader {
-	width:100%;
-	clear:both;
-	}
+	width: 100%;
+	clear: both;
+}
 
 img.bandLogo {
 	max-height: 150px;
-	}
+}
 
 #pageContent {
 	
-	
-	}
-	
+}
+
 #nav {
 	margin-top: 45px;
 	margin-left: 10px;
@@ -29,7 +56,7 @@ img.bandLogo {
 #nav ul {
 	list-style-type: none;
 	margin-bottom: 10px;
-	}
+}
 
 .homePagePanel * {
 	margin: 0px;
@@ -63,9 +90,6 @@ img.bandLogo {
 	height: 11px;
 	margin: 0px;
 }
-
-
-
 
 h2 {
 	margin-top: 15px;
@@ -135,7 +159,6 @@ input:focus,select:focus,textarea:focus {
 }
 
 .body {
-	
 	padding-left: 240px;
 	margin: 0 15px 10px 15px;
 }
@@ -145,7 +168,7 @@ input:focus,select:focus,textarea:focus {
 	background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
 	border: 1px solid #ccc;
 	border-style: solid none solid none;
-	height:12px;
+	height: 12px;
 	padding: 7px 12px;
 }
 
@@ -166,7 +189,8 @@ input:focus,select:focus,textarea:focus {
 }
 
 .menuButton a.list {
-	background: url(../images/skin/database_table.png) center left no-repeat;
+	background: url(../images/skin/database_table.png) center left no-repeat
+		;
 	color: #333;
 	padding-left: 25px;
 }

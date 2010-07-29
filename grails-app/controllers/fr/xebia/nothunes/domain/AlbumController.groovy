@@ -2,6 +2,11 @@ package fr.xebia.nothunes.domain
 
 import fr.xebia.nothunes.security.User
 
+
+/**
+ * Controleur de gestion des Albums. Reserve aux utilisateurs membres.
+ *
+ */
 class AlbumController {
 	
 	def authenticateService
