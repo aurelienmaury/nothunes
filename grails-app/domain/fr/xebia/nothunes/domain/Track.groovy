@@ -2,9 +2,11 @@ package fr.xebia.nothunes.domain
 
 class Track {
 	
-	static belongsTo = Band
+	static belongsTo = [album:Album]
 	
 	String name
+	
+	String audioPath
 	
 	Date dateCreated
 	
@@ -12,5 +14,10 @@ class Track {
 	
 	static constraints = {
 		name(nullable:false)
+		audioPath(nullable:false)
+	}
+	
+	def isOwnedBy (user) {
+		return album?.band?.owner == user
 	}
 }

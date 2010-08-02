@@ -26,7 +26,7 @@ class AlbumController {
 		if (!params.sort) params.sort = "name"
 		if (!params.order) params.order = "asc"
 		
-		// list withCriteria tu support ordering by band name
+		// list withCriteria to support ordering by band name
 		def albumList = Album.withCriteria {
 			maxResults(params.max?.toInteger())
 			firstResult(params.offset?.toInteger())
@@ -39,7 +39,7 @@ class AlbumController {
 			}
 		}
 		
-		[albumInstanceList: Album.getAll(), albumInstanceTotal: Album.count()]
+		[albumInstanceList: albumList, albumInstanceTotal: albumList.count()]
 	}
 	
 	def create = {

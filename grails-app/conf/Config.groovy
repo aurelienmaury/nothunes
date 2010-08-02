@@ -53,6 +53,7 @@ environments {
 }
 
 storage.image.directory='/tmp/nothunes_images/'
+storage.audio.directory='/tmp/nothunes_audio/'
 
 // log4j configuration
 log4j = {
@@ -63,7 +64,7 @@ log4j = {
 		console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
 	}
 	
-	debug	stdout:['grails.app.controller']
+	debug	stdout:['grails.app.controller', 'grails.app.service']
 	
 	error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
 			'org.codehaus.groovy.grails.web.pages', //  GSP

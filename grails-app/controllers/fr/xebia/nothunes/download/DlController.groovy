@@ -19,4 +19,18 @@ class DlController {
 		}
 		response.flush()
 	}
+	
+	def audio = {
+		String filename = params.id
+		log.debug "dl audio file : ${filename}"
+		
+		def file = new File(grailsApplication.config.storage.audio.directory + filename)
+		if (file.exists()) {
+			response.setContentType("application/octet-stream")
+			response.setHeader("Content-Disposition", "attachment; filename=${filename}")
+			response.setContentLength(file.readBytes().size())
+			response.getOutputStream() << file.readBytes()
+		}
+		response.flush()
+	}
 }

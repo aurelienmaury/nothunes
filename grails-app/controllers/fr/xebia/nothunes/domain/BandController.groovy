@@ -1,6 +1,8 @@
 package fr.xebia.nothunes.domain
 
 import fr.xebia.nothunes.security.User
+import grails.converters.*
+
 
 class BandController {
 	
@@ -149,5 +151,9 @@ class BandController {
 			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'band.label', default: 'Band'), params.id])}"
 			redirect(action: "list")
 		}
+	}
+	
+	def ajaxGetAlbums = {
+		render Band.get(params.id).albums as JSON
 	}
 }

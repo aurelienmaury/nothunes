@@ -29,6 +29,7 @@ class BootStrap {
 		def protectUserProfileManaging = new RequestMap(url: '/profile/*', configAttribute: 'ROLE_ADMIN,ROLE_USER').save()
 		def protectBandManaging = new RequestMap(url: '/band/*', configAttribute: 'ROLE_ADMIN,ROLE_USER').save()
 		def protectAlbumManaging = new RequestMap(url: '/album/*', configAttribute: 'ROLE_ADMIN,ROLE_USER').save()
+		def protectTrackManaging = new RequestMap(url: '/track/*', configAttribute: 'ROLE_ADMIN,ROLE_USER').save()
 		
 	}
 	def destroy = {

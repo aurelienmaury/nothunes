@@ -9,6 +9,7 @@
         <g:layoutHead />
         
         <g:javascript library="application" />
+        <g:javascript library="prototype" />
     </head>
     <body>
     <div class="wrapper">
