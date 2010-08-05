@@ -6,10 +6,11 @@
         
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         
-        <g:layoutHead />
-        
         <g:javascript library="application" />
+        
         <g:javascript library="prototype" />
+        
+        <g:layoutHead />
     </head>
     <body>
     <div class="wrapper">
@@ -20,6 +21,7 @@
         </div>
         <div id="grailsLogo"><a href="${createLinkTo(dir:'')}"><img src="${resource(dir:'images',file:'nothunes_logo.png')}" alt="Grails" border="0" /></a></div>
         </div>
+        
         <g:render template="/menu/nav"/>
         
         <div id="pageContent">

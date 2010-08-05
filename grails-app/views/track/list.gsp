@@ -25,10 +25,9 @@
                         
                             <g:sortableColumn property="name" title="${message(code: 'track.name.label', default: 'Name')}" />
                         
-                        
-                            <g:sortableColumn property="dateCreated" title="${message(code: 'track.dateCreated.label', default: 'Date Created')}" />
-                        
-                            <g:sortableColumn property="lastUpdated" title="${message(code: 'track.lastUpdated.label', default: 'Last Updated')}" />
+                        	<th>Band</th>
+                            
+                            <th>Album</th>
                         
                         </tr>
                     </thead>
@@ -40,11 +39,9 @@
                         
                             <td>${fieldValue(bean: trackInstance, field: "name")}</td>
                         
-
+                            <td>${trackInstance.album.band.name}</td>
                         
-                            <td><g:formatDate date="${trackInstance.dateCreated}" /></td>
-                        
-                            <td><g:formatDate date="${trackInstance.lastUpdated}" /></td>
+                            <td>${trackInstance.album.name}</td>
                         
                         </tr>
                     </g:each>

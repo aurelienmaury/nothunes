@@ -43,7 +43,6 @@ class TrackController {
 			}
 		}
 		
-		log.debug "nombre de track : ${trackList.count()}"
 		
 		return [trackInstanceList: trackList, trackInstanceTotal: trackList.count()]
 	}
