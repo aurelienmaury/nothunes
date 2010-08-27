@@ -101,8 +101,7 @@
 												            controller:'band', 
 												            action:'ajaxGetAlbums', 
 												            params:'\'id=\' + escape(this.value)', 
-												            onComplete:'updateAlbums(e)')}"
-								          />
+												            onComplete:'updateSelectAlbumWithJSON(e,\'albums\')')}" />
                                 </td>
                             </tr>
                             

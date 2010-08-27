@@ -10,54 +10,7 @@
 	value="${message(code: 'track.label', default: 'Track')}" />
 <title><g:message code="default.create.label"
 	args="[entityName]" /></title>
-<g:javascript>
-        
-        
-	function updateAlbums(e) {
-		// The response comes back as a bunch-o-JSON
-		var albums = eval("(" + e.responseText + ")")	// evaluate JSON
 
-		if (albums) {
-			var rselect = document.getElementById('albums')
-
-			// Clear all previous options
-			var l = rselect.length
-
-			while (l > 0) {
-				l--
-				rselect.remove(l)
-			}
-
-			var opt = document.createElement('option');
-			opt.text = '---Choose an album---'
-			opt.value = ''
-			try {
-		    	rselect.add(opt, null) // standards compliant; doesn't work in IE
-		  	}
-			catch(ex) {
-		   		rselect.add(opt) // IE only
-			}
-		  		
-
-			// Rebuild the select
-			for (var i=0; i < albums.length; i++) {
-				var anAlbum = albums[i]
-				var opt = document.createElement('option');
-				opt.text = anAlbum.name
-				opt.value = anAlbum.id
-			  	try {
-			    	rselect.add(opt, null) // standards compliant; doesn't work in IE
-			  	}
-		  		catch(ex) {
-		    		rselect.add(opt) // IE only
-		  		}
-			}
-		}
-	}
-
-	
-
-	</g:javascript>
 </head>
 <body>
 <div class="nav"><span class="menuButton"><g:link
@@ -97,7 +50,7 @@
 												            controller:'band', 
 												            action:'ajaxGetAlbums', 
 												            params:'\'id=\' + escape(this.value)', 
-												            onComplete:'updateAlbums(e)')}" />
+												            onComplete:'updateSelectAlbumWithJSON(e,\'albums\')')}" />
 				</td>
 			</tr>
 
