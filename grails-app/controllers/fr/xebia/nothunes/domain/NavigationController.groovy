@@ -12,18 +12,22 @@ class NavigationController {
          ne('audioPath', 'empty')
       }
       
-      def albumList = Album.withCriteria {
+      def albumCriteria = Album.createCriteria()
+      def albumList = albumCriteria.listDistinct {
          tracks {
             ne('audioPath', 'empty')
          }
+         order('name', 'asc')
       }
       
-      def bandList = Band.withCriteria(listDistinct:true) {
+      def bandCriteria = Band.createCriteria()
+      def bandList = bandCriteria.listDistinct {
          albums {
             tracks {
                ne('audioPath', 'empty')
             }
          }
+         order('name', 'asc')
       }
       
       [bandList: bandList, albumList: albumList, trackList: trackList]
@@ -48,7 +52,8 @@ class NavigationController {
    
    def ajaxFilterAlbumByBand = {
       
-      def albumList = Album.withCriteria {
+      def albumCriteria = Album.createCriteria()
+      def albumList = albumCriteria.listDistinct {
          tracks {
             ne('audioPath', 'empty')
          }
@@ -58,6 +63,7 @@ class NavigationController {
                eq('id', new Long(params.id))
             }
          }
+         order('name', 'asc')
       }
       
       render albumList as JSON

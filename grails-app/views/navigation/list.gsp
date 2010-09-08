@@ -16,9 +16,8 @@
 			}
 			
 			function filterByAlbum() {
-				var bandId = $F('bandSelect');
 				var albumId = $F('albumSelect');
-				<g:remoteFunction action="ajaxFilterTrackByBand" params="'id=' + albumId + '&band='+escape(bandId)" onComplete="updateTrackList(e)"/>
+				<g:remoteFunction action="ajaxFilterTrackByAlbum" params="'id=' + albumId" onComplete="updateTrackList(e)"/>
 			}
 			
 			
