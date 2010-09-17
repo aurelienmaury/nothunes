@@ -7,27 +7,26 @@
         <title>Navigation</title>
         
         <g:javascript>
+         // Fonction de filtrage du select des Albums et de la liste des Track, à partir d'un id de Band
+         function filterByBand() {
+            var bandId = $F('bandSelect');
+            <g:remoteFunction action="ajaxFilterTrackByBand" params="'id=' + bandId" onComplete="updateTrackList(e)"/>
+            <g:remoteFunction action="ajaxFilterAlbumByBand" params="'id=' + bandId" onComplete="updateAlbums(e)"/>
+         }
 
-		        
-			function filterByBand() {
-				var bandId = $F('bandSelect');
-				<g:remoteFunction action="ajaxFilterTrackByBand" params="'id=' + bandId" onComplete="updateTrackList(e)"/>
-				<g:remoteFunction action="ajaxFilterAlbumByBand" params="'id=' + bandId" onComplete="updateAlbums(e)"/>
-			}
-			
-			function filterByAlbum() {
-				var albumId = $F('albumSelect');
-				<g:remoteFunction action="ajaxFilterTrackByAlbum" params="'id=' + albumId" onComplete="updateTrackList(e)"/>
-			}
-			
-			
-			
-			
-			function updateTrackList(e) {
-				$('navTrack').innerHTML = e.responseText;
-			}
-			
-			function updateAlbums(e) {
+         // Fonction de filtrage de la liste des Track, à partir d'un id d'Album
+         function filterByAlbum() {
+            var albumId = $F('albumSelect');
+            <g:remoteFunction action="ajaxFilterTrackByAlbum" params="'id=' + albumId" onComplete="updateTrackList(e)"/>
+         }
+
+         // Fonction de mise à jour de la liste des Track avec la réponse (au format HTML) de la requête AJAX.
+         function updateTrackList(e) {
+            $('navTrack').innerHTML = e.responseText;
+         }
+
+         // Fonction de mise à jour du select des Albums avec la réponse (au format JSON) de la requête AJAX.
+		function updateAlbums(e) {
 		// The response comes back as a bunch-o-JSON
 		var albums = eval("(" + e.responseText + ")")	// evaluate JSON
 
