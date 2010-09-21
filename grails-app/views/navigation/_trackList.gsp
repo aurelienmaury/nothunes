@@ -2,6 +2,7 @@
 <table>
    <thead class="fixedHeader">
       <tr>
+         
          <th>
          ${message(code: 'track.name.label', default: 'Name')}
          </th>
@@ -14,7 +15,7 @@
          ${message(code: 'album.name.label', default: 'Album')}
          </th>
 
-         <th style="width: 50px; text-align: center;">Download</th>
+         <th style="width: 120px; text-align: center;">Play - Download</th>
       </tr>
    </thead>
 
@@ -22,7 +23,7 @@
 
       <g:each in="${trackList}" status="i" var="trackInstance">
          <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-
+            
             <td>
             ${fieldValue(bean: trackInstance, field: "name")}
             </td>
@@ -35,8 +36,8 @@
             ${fieldValue(bean: trackInstance, field: "album.name")}
             </td>
 
-            <td style="width: 50px; text-align: center;"><a
-               href="${createLink(controller:'dl', action:'audio', params: [id: trackInstance.audioPath])}">
+             <td style="width: 50px; text-align: center;"><a
+               href="${createLink(controller:'dl', action:'audio', params: [id: trackInstance.audioPath])}"> - 
             <img src="${resource(dir:'images',file:'filesave.png')}"
                border="0" /> </a></td>
          </tr>

@@ -69,6 +69,8 @@
 	}
 	
         </g:javascript>
+        
+        <sm:inlinePlayer/>
     </head>
     <body>
         <div class="nav">
