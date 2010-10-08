@@ -1,4 +1,6 @@
-
+ <head>
+ <sm:inlinePlayer/>
+ </head>
 <table>
    <thead class="fixedHeader">
       <tr>

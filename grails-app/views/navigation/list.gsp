@@ -69,8 +69,6 @@
 	}
 	
         </g:javascript>
-        
-        <sm:inlinePlayer/>
     </head>
     <body>
         <div class="nav">
@@ -82,7 +80,10 @@
             <g:if test="${flash.message}">
             	<div class="message">${flash.message}</div>
             </g:if>
-            
+            <g:form action="search">
+            <input type="text" id="searchQuery" name="searchQuery" value="${searchQuery}"/>
+            <g:actionSubmit  value="Search" />
+            </g:form>
             <div class="navigation">
             
 	            <!-- band selection -->

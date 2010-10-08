@@ -3,43 +3,45 @@ package fr.xebia.nothunes.domain
 import fr.xebia.nothunes.security.User;
 
 /**
- * Classe de domaine représentant un groupe de musique.
+ * Classe de domaine reprÔøΩsentant un groupe de musique.
  * 
  * @author amaury
  *
  */
 class Band {
-	
-	static belongsTo = [owner:User]
-	static hasMany = [albums: Album]
-	
-	/**
-	 * Le nom du groupe.
-	 */
-	String name
-	
-	/**
-	 * Chemin vers le fichier d'image qui sert de logo au groupe.
-	 */
-	String logoPath
-	
-	/**
-	 * L'accroche du groupe, pour se présenter ou présenter leurs compositions.
-	 */
-	String description
-	
-	/**
-	 * L'adresse d'un site externe qui pourrait être le site officiel du groupe.
-	 */
-	String webSite
-	
-	Date dateCreated
-	
-	Date lastUpdated
-	
-	static constraints = {
-		name(nullable:false)
-		description(nullable:false)
-		webSite(url:true)
-	}
+   
+   static searchable = [only: ['name']] 
+   static belongsTo = [owner:User]
+   static hasMany = [albums: Album]
+   
+   /**
+    * Le nom du groupe.
+    */
+   String name
+   
+   /**
+    * Chemin vers le fichier d'image qui sert de logo au groupe.
+    */
+   String logoPath
+   
+   /**
+    * L'accroche du groupe, pour se prÔøΩsenter ou prÔøΩsenter leurs compositions.
+    */
+   String description
+   
+   /**
+    * L'adresse d'un site externe qui pourrait ÔøΩtre le site officiel du groupe.
+    */
+   String webSite
+   
+   Date dateCreated
+   
+   Date lastUpdated
+   
+   static constraints = {
+      name(nullable:false)
+      description(nullable:false)
+      logoPath(nullable:true)
+      webSite(url:true)
+   }
 }
