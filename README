@@ -5,11 +5,25 @@ Projet NoThunes.
 ================================================================================
 
 Ce projet est destiné à fournir des exemples concrets de mise 
-en oeuvre de Grails sur un projet conséquent. Des articles du blog de Xebia France permettent 
-de suivre toute la démarche depuis le départ.
+en oeuvre de Grails sur un projet conséquent. Des articles du blog de Xebia 
+France permettent de suivre toute la démarche depuis le départ.
 
 chaque tag fige la version du projet au moment de la publication d'un article :
 
-* v0.1 : http://blog.xebia.fr/2010/09/09/nothunes-naissance-dun-projet-grails/
-* v0.2 : http://blog.xebia.fr/2010/09/23/nothunes-lespace-vip/
-* v0.3 : http://blog.xebia.fr/2010/10/07/nothunes-ajax-ification-sauce-grails/
+* v0.1 :
+  Démarrage du projet, définition des fonctionnalitées attendues.
+
+  http://blog.xebia.fr/2010/09/09/nothunes-naissance-dun-projet-grails/
+
+* v0.2 : 
+  Ajout de fonctionnalités dans l'espace membre pour manipuler les Albums et 
+  les Bands.
+
+  http://blog.xebia.fr/2010/09/23/nothunes-lespace-vip/
+
+* v0.3 : 
+  Gestion des Tracks dans l'espace membres et navigation pour les internautes.
+
+  http://blog.xebia.fr/2010/10/07/nothunes-ajax-ification-sauce-grails/
+
+Les feedbacks sont les bienvenus.
