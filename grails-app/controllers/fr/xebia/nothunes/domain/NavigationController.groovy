@@ -35,6 +35,17 @@ class NavigationController {
       [bandList: bandList, albumList: albumList, trackList: trackList]
    }
    
+   /**
+    * Methode d'instrumentation pour transformer la chaine de recherche du formulaire en query Lucene-compliant
+    * @param query Chaine de recherche
+    */
+   def instrument(String query) {
+      return query+"*"
+   }
+   
+   /**
+    * 
+    */
    def search = {
       String searchQuery = instrument(params.searchQuery)
       
@@ -42,6 +53,7 @@ class NavigationController {
       
       def result = searchableService.search(searchQuery)
       
+      // Les *.searchEvery remontent des entités incomplètes, il faudra les récupérer en base pour avoir tous les champs
       def albumResult = Album.searchEvery(searchQuery)
       def bandResult = Band.searchEvery(searchQuery)
       def trackResult = Track.searchEvery(searchQuery)
@@ -62,7 +74,6 @@ class NavigationController {
       
       // filtrage des albums pour afficher uniquement ceux qui ont au moins un track avec un fichier audio
       albumResult.each {
-         
          def hasOneCompleteTrack = false
          def fullAlbum = Album.get(it.id)
          fullAlbum.tracks.each { aTrack ->
@@ -95,16 +106,13 @@ class NavigationController {
                albumList.add(anAlbum)
             }
          }
-         
-         
       }
       
+      // Rendu de la vue
       render (view:'list', model: [bandList: bandList, albumList: albumList, trackList: trackList, searchQuery: params.searchQuery])
    }
    
-   def instrument(String query) {
-      return query+"*"
-   }
+   
    
    def ajaxFilterTrackByBand = {
       
