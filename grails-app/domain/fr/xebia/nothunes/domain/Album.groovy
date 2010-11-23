@@ -24,4 +24,5 @@ class Album {
       description(nullable:true)
       logoPath(nullable:true)
    }
+
 }

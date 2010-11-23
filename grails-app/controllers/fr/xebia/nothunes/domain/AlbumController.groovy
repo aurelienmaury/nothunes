@@ -25,13 +25,20 @@ class AlbumController {
 		if (!params.offset) params.offset = 0
 		if (!params.sort) params.sort = "name"
 		if (!params.order) params.order = "asc"
-		
+
+    def owner = User.get(authenticateService.userDomain().id)
+
+
 		// list withCriteria to support ordering by band name
 		def albumList = Album.withCriteria {
 			maxResults(params.max?.toInteger())
 			firstResult(params.offset?.toInteger())
+      band {
+          eq ('owner', owner)
+				}
 			if (params.sort == 'bandName') {
 				band {
+          eq ('owner', owner)
 					order('name', params.order)
 				}
 			} else {

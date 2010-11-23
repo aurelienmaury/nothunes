@@ -1,5 +1,7 @@
 package fr.xebia.nothunes.domain
 
+import java.util.List;
+
 class Track {
    
    static searchable = [only: ['name']] 
@@ -21,5 +23,18 @@ class Track {
    
    def isOwnedBy (user) {
       return album?.band?.owner == user
+   }
+   
+  
+   
+   static List<Track> pageOrderedByAlbumName(max, offset, orderType) {
+      Track.withCriteria {
+         maxResults(max?.toInteger())
+         firstResult(offset?.toInteger())
+         album {
+            order('name', params.order)
+         }
+         order('name', 'asc')
+      }
    }
 }
