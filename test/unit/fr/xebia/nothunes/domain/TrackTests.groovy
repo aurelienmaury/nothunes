@@ -13,12 +13,6 @@ class TrackTests extends GrailsUnitTestCase {
 
   void testConstraints() {
 
-    def invalidTrack = new Track()
-
-    mockForConstraintsTests(Track)
-
-    invalidTrack.save()
-
-    assertNotNull(invalidTrack.errors)
+   
   }
 }

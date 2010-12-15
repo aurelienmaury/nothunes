@@ -29,12 +29,14 @@ class TrackController {
       maxResults(params.max?.toInteger())
       firstResult(params.offset?.toInteger())
       album {
+
         band {
           eq 'owner', owner
           if (params.sort == 'bandName') {
             order ('name', params.order).ignoreCase()
           }
         }
+
         if (params.sort == 'albumName') {
           order('name', params.order).ignoreCase()
         }

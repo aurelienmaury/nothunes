@@ -4,37 +4,37 @@ import java.util.List;
 
 class Track {
    
-   static searchable = [only: ['name']] 
+  static searchable = [only: ['name']]
    
-   static belongsTo = [album:Album]
+  static belongsTo = [album:Album]
    
-   String name
+  String name
    
-   String audioPath
+  String audioPath
    
-   Date dateCreated
+  Date dateCreated
    
-   Date lastUpdated
+  Date lastUpdated
    
-   static constraints = {
-      name(nullable:false)
-      audioPath(nullable:false)
-   }
+  static constraints = {
+    name(nullable:false)
+    audioPath(nullable:false)
+  }
    
-   def isOwnedBy (user) {
-      return album?.band?.owner == user
-   }
+  def isOwnedBy (user) {
+    return album?.band?.owner == user
+  }
    
   
    
-   static List<Track> pageOrderedByAlbumName(max, offset, orderType) {
-      Track.withCriteria {
-         maxResults(max?.toInteger())
-         firstResult(offset?.toInteger())
-         album {
-            order('name', params.order)
-         }
-         order('name', 'asc')
+  static List<Track> pageOrderedByAlbumName(max, offset, orderType) {
+    Track.withCriteria {
+      maxResults(max)
+      firstResult(offset)
+      album {
+        order('name', orderType).ignoreCase()
       }
-   }
+      order('name', 'asc').ignoreCase()
+    }
+  }
 }
