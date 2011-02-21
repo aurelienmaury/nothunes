@@ -10,7 +10,7 @@
 		<span class="menuButton"><g:link class="create" action="create">New Role</g:link></span>
 	</div>
 
-	<div class="body">
+	
 		<h1>Show Role</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -51,6 +51,6 @@
 			</g:form>
 		</div>
 
-	</div>
+	
 
 </body>

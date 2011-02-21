@@ -1,77 +1,45 @@
 <head>
 <meta name='layout' content='main' />
 <title>Login</title>
-<style type='text/css' media='screen'>
 
-#login {
-	margin:15px 0px; padding:0px;
-	background: url(../images/leftnav_midstretch.png) repeat-y top;
-	text-align:center;	
-}
-#login .inner {
-	width:230px;
-	margin:0px auto;
-	text-align:left;
-	padding:10px;
-	background-color:#EEF;
-}
-#login .inner .fheader {
-	padding:4px;margin:3px 0px 3px 0;color:#2e3741;font-size:14px;font-weight:bold;
-}
-#login .inner .cssform p {
-	
-	margin: 0;
-	padding: 5px 0 8px 0;
-	padding-left: 105px;
-	
-	margin-bottom: 10px;
-	height: 1%;
-}
-#login .inner .cssform input[type='text'] {
-	width: 120px;
-}
-#login .inner .cssform label {
-	font-weight: bold;
-	float: left;
-	margin-left: -105px;
-	width: 100px;
-}
-#login .inner .login_message {color:red;}
-#login .inner .text_ {width:120px;}
-#login .inner .chk {height:12px;}
-</style>
 </head>
 
 <body>
-<div class="nav">
-		
-	</div>
-	<div id='login'>
-		<div class='inner'>
-			<g:if test='${flash.message}'>
-			<div class='login_message'>${flash.message}</div>
-			</g:if>
-			<div class='fheader'>Please Login..</div>
-			<form action='${postUrl}' method='POST' id='loginForm' class='cssform'>
-				<p>
-					<label for='j_username'>Login ID</label>
-					<input type='text' class='text_' name='j_username' id='j_username' value='${request.remoteUser}' />
-				</p>
-				<p>
-					<label for='j_password'>Password</label>
-					<input type='password' class='text_' name='j_password' id='j_password' />
-				</p>
-				<p>
-					<label for='remember_me'>Remember me</label>
-					<input type='checkbox' class='chk' name='_spring_security_remember_me' id='remember_me'
-					<g:if test='${hasCookie}'>checked='checked'</g:if> />
-				</p>
-				<p>
-					<input type='submit' value='Login' />
-				</p>
-			</form>
-		</div>
-	</div>
+  
+<div id="boxEntete">
+    <div class="halfLeft textRight">
+      <img src="${resource(dir:'images',file:'personal.png')}" border="0" />
+    </div>
+  <div class="halfRight">
+    <form action='${postUrl}' method='POST' id='loginForm' class='cssform'>
+      <h2>Please log in</h2>
+    <table>
+          <tbody>
+
+            <tr class='prop'>
+              <td valign='top' class='name'><label for='j_username'>Login ID</label></td>
+              <td valign='top' class='value'><input type='text' class='text_' name='j_username' id='j_username' value='${request.remoteUser}' /></td>
+            </tr>
+
+            <tr class='prop'>
+              <td valign='top' class='name'><label for='j_password'>Password</label></td>
+              <td valign='top' class='value'><input type='password' class='text_' name='j_password' id='j_password' /></td>
+            </tr>
+
+            <tr class='prop'>
+              <td valign='top' class='name'><label for='remember_me'>Remember me</label></td>
+              <td valign='top' class='value'><input type='checkbox' class='chk' name='_spring_security_remember_me' id='remember_me'
+					<g:if test='${hasCookie}'>checked='checked'</g:if> /></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+          <input type='submit' value='Login' />
+          </form>
+  </div>
+</div>
+
 <script type='text/javascript'>
 <!--
 (function(){

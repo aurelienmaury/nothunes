@@ -1,7 +1,113 @@
-html * {
-	margin: 0;
-	/*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+html {
+  margin:0;
 }
+
+body {
+  margin:1%;
+}
+
+.textRight {
+text-align:right;
+}
+
+.textCenter {
+text-align:center;
+}
+
+#logo
+{
+  width:40%;
+  float: left;
+  margin-bottom: 1%;
+  padding:1%;
+}
+
+#menuBar {
+
+  float:left;
+  clear:left;
+  text-align: left;   
+  width: 12%;
+}
+
+#menuBar span.item {
+display:block;
+
+}
+
+#boxcontainer {
+
+float:right;
+width: 85%;
+
+
+}
+
+#menu
+{
+  float: right;
+  width:40%;
+  text-align:right;
+  margin-bottom:1%;
+
+}
+
+span.item
+{
+  margin-left: 1%;
+  padding-left:1%;
+  padding-right:1%;
+}
+
+
+.halfLeft {
+  float: left;
+  width: 47%;
+  padding:1%;
+
+}
+
+.halfRight {
+  float: right;
+  width: 47%;
+  padding:7px;;
+}
+
+#boxLeft {
+  clear:both;
+  float: left;
+  width: 49%;
+  margin-bottom:1%;
+}
+
+#boxEntete {
+  clear:both;
+  float: left;
+  width: 90%;
+  margin-bottom:1%;
+}
+
+
+
+
+#boxRight {
+  float: right;
+  width: 50%;
+  margin-bottom:1%;
+}
+
+
+#bigBox {
+
+  clear:both;
+  margin-left:auto;
+  margin-right:auto;
+  padding: 1%;
+  margin-bottom:2%;
+}
+
+
+
 
 #pageFooter {
 	height: 20px;
@@ -241,6 +347,7 @@ input:focus,select:focus,textarea:focus {
 .message {
 	background: #f3f8fc url(../images/skin/information.png) 8px 50%
 		no-repeat;
+  clear:both;
 	border: 1px solid #b2d1ff;
 	color: #006dba;
 	margin: 10px 0 5px 0;
@@ -249,6 +356,7 @@ input:focus,select:focus,textarea:focus {
 
 div.errors {
 	background: #fff3f3;
+  clear:both;
 	border: 1px solid red;
 	color: #cc0000;
 	margin: 10px 0 5px 0;
@@ -276,7 +384,7 @@ td.errors input {
 
 /* TABLES */
 table {
-	border: 1px solid #ccc;
+	
 	width: 100%
 }
 

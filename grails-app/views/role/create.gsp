@@ -9,7 +9,7 @@
 		<span class="menuButton"><g:link class="list" action="list">Role List</g:link></span>
 	</div>
 
-	<div class="body">
+	
 
 		<h1>Create Role</h1>
 		<g:if test="${flash.message}">
@@ -46,5 +46,5 @@
 			<span class="button"><input class="save" type="submit" value="Create" /></span>
 		</div>
 		</g:form>
-	</div>
+	
 </body>
