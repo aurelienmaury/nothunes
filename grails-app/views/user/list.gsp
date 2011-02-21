@@ -9,7 +9,7 @@
 		<span class="menuButton"><g:link class="create" action="create">New User</g:link></span>
 	</div>
 
-	<div class="body">
+	
 		<h1>User List</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -49,5 +49,4 @@
 			<g:paginate total="${fr.xebia.nothunes.security.User.count()}" />
 		</div>
 
-	</div>
 </body>

@@ -5,9 +5,9 @@
 
 <body>
 
-	<div class="nav"></div>
+	
 
-	<div class="body">
+	
 		<h1>Your Profile</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -40,12 +40,13 @@
 			</table>
 		</div>
 
+<g:form>
 		<div class="buttons">
-			<g:form>
+			
 				<input type="hidden" name="id" value="${person.id}" />
 				<span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
-			</g:form>
+			
 		</div>
+  </g:form>
 
-	</div>
 </body>

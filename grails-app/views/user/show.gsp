@@ -10,7 +10,6 @@
 		<span class="menuButton"><g:link class="create" action="create">New User</g:link></span>
 	</div>
 
-	<div class="body">
 		<h1>Show User</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -69,13 +68,14 @@
 			</table>
 		</div>
 
+<g:form>
 		<div class="buttons">
-			<g:form>
+			
 				<input type="hidden" name="id" value="${person.id}" />
 				<span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
 				<span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
-			</g:form>
+			
 		</div>
+  </g:form>
 
-	</div>
 </body>

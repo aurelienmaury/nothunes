@@ -10,7 +10,7 @@
 		<span class="menuButton"><g:link class="create" action="create">New User</g:link></span>
 	</div>
 
-	<div class="body">
+	
 		<h1>Edit User</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -113,5 +113,4 @@
 
 		</g:form>
 
-	</div>
 </body>
