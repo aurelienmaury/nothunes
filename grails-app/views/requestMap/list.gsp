@@ -9,7 +9,7 @@
 		<span class="menuButton"><g:link class="create" action="create">New RequestMap</g:link></span>
 	</div>
 
-	<div class="body">
+	
 		<h1>RequestMap List</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -45,5 +45,4 @@
 			<g:paginate total="${fr.xebia.nothunes.security.RequestMap.count()}" />
 		</div>
 
-	</div>
 </body>

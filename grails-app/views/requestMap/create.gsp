@@ -9,7 +9,7 @@
 		<span class="menuButton"><g:link class="list" action="list">RequestMap List</g:link></span>
 	</div>
 
-	<div class="body">
+	
 		<h1>Create RequestMap</h1>
 		<g:if test="${flash.message}">
 		<div class="message">${flash.message}</div>
@@ -48,5 +48,5 @@
 
 		</g:form>
 
-	</div>
+
 </body>

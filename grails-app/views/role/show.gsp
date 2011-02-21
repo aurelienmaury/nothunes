@@ -36,21 +36,22 @@
 
 				<tr class="prop">
 					<td valign="top" class="name">People:</td>
-					<td valign="top" class="value">${authority.people}</td>
+					<td valign="top" class="value">${authority.people*.username}</td>
 				</tr>
 
 			</tbody>
 			</table>
 		</div>
 
+<g:form>
 		<div class="buttons">
-			<g:form>
+			
 				<input type="hidden" name="id" value="${authority?.id}" />
 				<span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
 				<span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
-			</g:form>
+			
 		</div>
-
+</g:form>
 	
 
 </body>
