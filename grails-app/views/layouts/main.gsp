@@ -21,13 +21,15 @@
         </div>
         <div id="logo"><a href="${createLinkTo(dir:'')}"><img src="${resource(dir:'images',file:'nothunes_logo.png')}" alt="Grails" border="0" /></a></div>
         </div>
-        
-        <g:render template="/menu/nav"/>
 
-
+      <g:render template="/menu/topNav"/>
 <g:if test='${flash.message}'>
 			<div class='message'>${flash.message}</div>
 			</g:if>
+
+        <g:render template="/menu/nav"/>
+
+
 
         <g:isLoggedIn>
           <div id="boxcontainer">

@@ -39,7 +39,7 @@ class Band {
    Date lastUpdated
    
    static constraints = {
-      name(nullable:false)
+      name(nullable:false,size:1..128)
       description(nullable:false)
       logoPath(nullable:true)
       webSite(url:true)
